@@ -1,0 +1,364 @@
+*** EVALUATION ***
+PROGRAM "Lab0_2.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.50 Build 13087, Mar 29 2013
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+Animation_asm.obj                       Model: SMALL,         Lang: Assembler
+LCD_asm.obj                             Model: SMALL,         Lang: Assembler
+MCUinit_asm.obj                         Model: SMALL,         Lang: Assembler
+keyboard_asm.obj                        Model: SMALL,         Lang: Assembler
+main_asm.obj                            Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xE000 (_Startup)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            231     R     0xE000     0xE0E6   ROM
+MY_ZEROPAGE                        7   R/W       0x60       0x66   Z_RAM
+MCUinit_asm__ORG00001              1     R     0xFFBD     0xFFBD   .absSeg0
+MCUinit_asm__ORG00002              1     R     0xFFBF     0xFFBF   .absSeg1
+MCUinit_asm__ORG00003             48     R     0xFFD0     0xFFFF   .absSeg2
+Animation_asm._SEC000000          70     R     0xE0E7     0xE12C   ROM
+LCD_asm._SEC000000               455     R     0xE12D     0xE2F3   ROM
+CODE_SECT                        131     R     0xE2F4     0xE376   ROM
+KeyBoardCode                     142     R     0xE377     0xE404   ROM
+MyConst                           41     R     0xE405     0xE42D   ROM
+.stack                            64   R/W      0x100      0x13F   RAM
+
+Summary of section sizes per section type:
+READ_ONLY (R):         460 (dec:     1120)
+READ_WRITE (R/W):       47 (dec:       71)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- Animation_asm.obj --
+- PROCEDURES:
+     Animation_init                            E0E7       D      13       1   Animation_asm._SEC000000
+     Animation_update                          E0F4       A      10       1   Animation_asm._SEC000000
+     Animate_right                             E0FE      17      23       0   Animation_asm._SEC000000
+     Animate_left                              E115      17      23       0   Animation_asm._SEC000000
+     Animate_break                             E12C       1       1       0   Animation_asm._SEC000000
+- VARIABLES:
+MODULE:                 -- LCD_asm.obj --
+- PROCEDURES:
+     LCD_init                                  E12D      73     115       1   LCD_asm._SEC000000
+     delay_15ms                                E1A0       2       2       8   LCD_asm._SEC000000
+     delay2                                    E1A2       8       8       0   LCD_asm._SEC000000
+     delay_50us                                E1AA       F      15      31   LCD_asm._SEC000000
+     check_busy_while                          E1B9      17      23       0   LCD_asm._SEC000000
+     write_LCD                                 E1D0      40      64       6   LCD_asm._SEC000000
+     clear_LCD                                 E210       E      14       0   LCD_asm._SEC000000
+     check_line_end                            E21E      14      20       0   LCD_asm._SEC000000
+     check_line_end_end                        E232       6       6       0   LCD_asm._SEC000000
+     setup_custom_character                    E238      BC     188       1   LCD_asm._SEC000000
+- VARIABLES:
+MODULE:                 -- MCUinit_asm.obj --
+- PROCEDURES:
+     MCU_init                                  E2F4      26      38       1   CODE_SECT   
+     SkipTrim                                  E31A      34      52       0   CODE_SECT   
+     isrVmtim                                  E34E       7       7       1   CODE_SECT   
+     isrVtpmovf                                E355       F      15       1   CODE_SECT   
+     flagToggle                                E364      13      19       0   CODE_SECT   
+- VARIABLES:
+     VAR00001                                  FFBD       1       1       0   .text       
+     VAR00002                                  FFBF       1       1       0   .text       
+     VAR00003                                  FFD0       2       2       0   .text       
+     VAR00004                                  FFD2       2       2       0   .text       
+     VAR00005                                  FFD4       2       2       0   .text       
+     VAR00006                                  FFD6       2       2       0   .text       
+     VAR00007                                  FFD8       2       2       0   .text       
+     VAR00008                                  FFDA       2       2       0   .text       
+     VAR00009                                  FFDC       2       2       0   .text       
+     VAR00010                                  FFDE       2       2       0   .text       
+     VAR00011                                  FFE0       2       2       0   .text       
+     VAR00012                                  FFE2       2       2       0   .text       
+     VAR00013                                  FFE4       2       2       0   .text       
+     VAR00014                                  FFE6       2       2       0   .text       
+     VAR00015                                  FFE8       2       2       0   .text       
+     VAR00016                                  FFEA       2       2       0   .text       
+     VAR00017                                  FFEC       2       2       0   .text       
+     VAR00018                                  FFEE       2       2       0   .text       
+     VAR00019                                  FFF0       2       2       0   .text       
+     VAR00020                                  FFF2       2       2       0   .text       
+     VAR00021                                  FFF4       2       2       0   .text       
+     VAR00022                                  FFF6       2       2       0   .text       
+     VAR00023                                  FFF8       2       2       0   .text       
+     VAR00024                                  FFFA       2       2       0   .text       
+     VAR00025                                  FFFC       2       2       0   .text       
+     VAR00026                                  FFFE       2       2       0   .text       
+MODULE:                 -- keyboard_asm.obj --
+- PROCEDURES:
+     keyBoardScan                              E377       9       9       3   KeyBoardCode
+     keyHitStill                               E380       3       3       0   KeyBoardCode
+     keyOkay                                   E383      2E      46       0   KeyBoardCode
+     00001LOOP                                 E3B1       C      12       0   KeyBoardCode
+     00001LOOPFAIL                             E3BD       2       2       0   KeyBoardCode
+     00001LOOPFINE                             E3BF       B      11       0   KeyBoardCode
+     00002LOOP                                 E3CA       C      12       0   KeyBoardCode
+     00002LOOPFAIL                             E3D6       2       2       0   KeyBoardCode
+     00002LOOPFINE                             E3D8      1B      27       0   KeyBoardCode
+     keyBoardNextRow                           E3F3       E      14       0   KeyBoardCode
+     checkRowValueEnd                          E401       3       3       0   KeyBoardCode
+     keyBoardEnd                               E404       1       1       1   KeyBoardCode
+- VARIABLES:
+MODULE:                 -- main_asm.obj --
+- PROCEDURES:
+     _Startup                                  E000      51      81       1   .init       
+     main                                      E000       0       0       0   .init       
+     mainLoop                                  E051       A      10       0   .init       
+     checkFlags                                E05B      3B      59       0   .init       
+     A_hit                                     E096       4       4       0   .init       
+     Two_hit                                   E09A       4       4       0   .init       
+     Star_hit                                  E09E       4       4       0   .init       
+     other_hit                                 E0A2       D      13       0   .init       
+     checkFlagsTimer                           E0AF       B      11       0   .init       
+     checkEnd                                  E0BA       1       1       0   .init       
+     heartBeat                                 E0BB      19      25       0   .init       
+     updateLEDs                                E0D4      13      19       0   .init       
+- VARIABLES:
+     heartbeat_counter                           60       1       1       4   MY_ZEROPAGE 
+     interruptFlags                              61       1       1      21   MY_ZEROPAGE 
+     rowValue                                    62       1       1       8   MY_ZEROPAGE 
+     colValue                                    63       1       1       6   MY_ZEROPAGE 
+     rowCol                                      64       1       1       9   MY_ZEROPAGE 
+     LCD_char                                    65       1       1       3   MY_ZEROPAGE 
+     LCD_char_pos                                66       1       1       9   MY_ZEROPAGE 
+     keyboard_table                            E405      11      17       2   MyConst     
+     ASCII_table                               E416      11      17       2   MyConst     
+     Char_table                                E427       7       7       0   MyConst     
+- LABELS:
+     __SEG_END_SSTACK                           140       0       0       1               
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  Animation_asm.obj                            0     70      0
+  LCD_asm.obj                                  0    455      0
+  MCUinit_asm.obj                              0    131     50
+  keyboard_asm.obj                             0    142      0
+  main_asm.obj                                 7    231     41
+  other                                       64      0      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  VAR00001 VAR00002 VAR00003 VAR00004 VAR00005 VAR00006 VAR00007 VAR00008 
+  VAR00009 VAR00010 VAR00011 VAR00012 VAR00013 VAR00014 VAR00015 VAR00016 
+  VAR00017 VAR00018 VAR00019 VAR00020 VAR00021 VAR00022 VAR00023 VAR00024 
+  VAR00025 VAR00026 
+SECTION: ".init"
+  main _Startup mainLoop checkFlags A_hit Two_hit Star_hit other_hit 
+  checkFlagsTimer checkEnd heartBeat updateLEDs 
+SECTION: "MY_ZEROPAGE"
+  heartbeat_counter interruptFlags rowValue colValue rowCol LCD_char 
+  LCD_char_pos 
+SECTION: "Animation_asm._SEC000000"
+  Animation_init Animation_update Animate_right Animate_left Animate_break 
+SECTION: "LCD_asm._SEC000000"
+  LCD_init delay_15ms delay2 delay_50us check_busy_while write_LCD clear_LCD 
+  check_line_end check_line_end_end setup_custom_character 
+SECTION: "CODE_SECT"
+  MCU_init SkipTrim isrVmtim isrVtpmovf flagToggle 
+SECTION: "KeyBoardCode"
+  keyBoardScan keyHitStill keyOkay 00001LOOP 00001LOOPFAIL 00001LOOPFINE 
+  00002LOOP 00002LOOPFAIL 00002LOOPFINE keyBoardNextRow checkRowValueEnd 
+  keyBoardEnd 
+SECTION: "MyConst"
+  keyboard_table ASCII_table Char_table 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     heartbeat_counter                           60       1       1       4   MY_ZEROPAGE 
+     interruptFlags                              61       1       1      21   MY_ZEROPAGE 
+     rowValue                                    62       1       1       8   MY_ZEROPAGE 
+     colValue                                    63       1       1       6   MY_ZEROPAGE 
+     rowCol                                      64       1       1       9   MY_ZEROPAGE 
+     LCD_char                                    65       1       1       3   MY_ZEROPAGE 
+     LCD_char_pos                                66       1       1       9   MY_ZEROPAGE 
+     main                                      E000       0       0       0   .init       
+     _Startup                                  E000      51      81       1   .init       
+     mainLoop                                  E051       A      10       0   .init       
+     checkFlags                                E05B      3B      59       0   .init       
+     A_hit                                     E096       4       4       0   .init       
+     Two_hit                                   E09A       4       4       0   .init       
+     Star_hit                                  E09E       4       4       0   .init       
+     other_hit                                 E0A2       D      13       0   .init       
+     checkFlagsTimer                           E0AF       B      11       0   .init       
+     checkEnd                                  E0BA       1       1       0   .init       
+     heartBeat                                 E0BB      19      25       0   .init       
+     updateLEDs                                E0D4      13      19       0   .init       
+     Animation_init                            E0E7       D      13       1   Animation_asm._SEC000000
+     Animation_update                          E0F4       A      10       1   Animation_asm._SEC000000
+     Animate_right                             E0FE      17      23       0   Animation_asm._SEC000000
+     Animate_left                              E115      17      23       0   Animation_asm._SEC000000
+     Animate_break                             E12C       1       1       0   Animation_asm._SEC000000
+     LCD_init                                  E12D      73     115       1   LCD_asm._SEC000000
+     delay_15ms                                E1A0       2       2       8   LCD_asm._SEC000000
+     delay2                                    E1A2       8       8       0   LCD_asm._SEC000000
+     delay_50us                                E1AA       F      15      31   LCD_asm._SEC000000
+     check_busy_while                          E1B9      17      23       0   LCD_asm._SEC000000
+     write_LCD                                 E1D0      40      64       6   LCD_asm._SEC000000
+     clear_LCD                                 E210       E      14       0   LCD_asm._SEC000000
+     check_line_end                            E21E      14      20       0   LCD_asm._SEC000000
+     check_line_end_end                        E232       6       6       0   LCD_asm._SEC000000
+     setup_custom_character                    E238      BC     188       1   LCD_asm._SEC000000
+     MCU_init                                  E2F4      26      38       1   CODE_SECT   
+     SkipTrim                                  E31A      34      52       0   CODE_SECT   
+     isrVmtim                                  E34E       7       7       1   CODE_SECT   
+     isrVtpmovf                                E355       F      15       1   CODE_SECT   
+     flagToggle                                E364      13      19       0   CODE_SECT   
+     keyBoardScan                              E377       9       9       3   KeyBoardCode
+     keyHitStill                               E380       3       3       0   KeyBoardCode
+     keyOkay                                   E383      2E      46       0   KeyBoardCode
+     00001LOOP                                 E3B1       C      12       0   KeyBoardCode
+     00001LOOPFAIL                             E3BD       2       2       0   KeyBoardCode
+     00001LOOPFINE                             E3BF       B      11       0   KeyBoardCode
+     00002LOOP                                 E3CA       C      12       0   KeyBoardCode
+     00002LOOPFAIL                             E3D6       2       2       0   KeyBoardCode
+     00002LOOPFINE                             E3D8      1B      27       0   KeyBoardCode
+     keyBoardNextRow                           E3F3       E      14       0   KeyBoardCode
+     checkRowValueEnd                          E401       3       3       0   KeyBoardCode
+     keyBoardEnd                               E404       1       1       1   KeyBoardCode
+     keyboard_table                            E405      11      17       2   MyConst     
+     ASCII_table                               E416      11      17       2   MyConst     
+     Char_table                                E427       7       7       0   MyConst     
+     VAR00001                                  FFBD       1       1       0   .text       
+     VAR00002                                  FFBF       1       1       0   .text       
+     VAR00003                                  FFD0       2       2       0   .text       
+     VAR00004                                  FFD2       2       2       0   .text       
+     VAR00005                                  FFD4       2       2       0   .text       
+     VAR00006                                  FFD6       2       2       0   .text       
+     VAR00007                                  FFD8       2       2       0   .text       
+     VAR00008                                  FFDA       2       2       0   .text       
+     VAR00009                                  FFDC       2       2       0   .text       
+     VAR00010                                  FFDE       2       2       0   .text       
+     VAR00011                                  FFE0       2       2       0   .text       
+     VAR00012                                  FFE2       2       2       0   .text       
+     VAR00013                                  FFE4       2       2       0   .text       
+     VAR00014                                  FFE6       2       2       0   .text       
+     VAR00015                                  FFE8       2       2       0   .text       
+     VAR00016                                  FFEA       2       2       0   .text       
+     VAR00017                                  FFEC       2       2       0   .text       
+     VAR00018                                  FFEE       2       2       0   .text       
+     VAR00019                                  FFF0       2       2       0   .text       
+     VAR00020                                  FFF2       2       2       0   .text       
+     VAR00021                                  FFF4       2       2       0   .text       
+     VAR00022                                  FFF6       2       2       0   .text       
+     VAR00023                                  FFF8       2       2       0   .text       
+     VAR00024                                  FFFA       2       2       0   .text       
+     VAR00025                                  FFFC       2       2       0   .text       
+     VAR00026                                  FFFE       2       2       0   .text       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+_Startup                  USES __SEG_END_SSTACK MCU_init heartbeat_counter 
+                                interruptFlags rowValue rowCol LCD_char_pos LCD_init 
+                                setup_custom_character Animation_init 
+mainLoop                  USES keyBoardScan Animation_update 
+checkFlags                USES interruptFlags rowCol keyBoardScan 
+                                keyboard_table 
+A_hit                     USES interruptFlags 
+Two_hit                   USES interruptFlags 
+Star_hit                  USES interruptFlags 
+other_hit                 USES rowCol ASCII_table LCD_char_pos write_LCD 
+checkFlagsTimer           USES interruptFlags 
+heartBeat                 USES interruptFlags 
+Animation_init            USES ASCII_table LCD_char_pos write_LCD 
+Animation_update          USES interruptFlags 
+Animate_right             USES LCD_char_pos write_LCD interruptFlags 
+Animate_left              USES LCD_char_pos write_LCD interruptFlags 
+LCD_init                  USES delay_15ms delay_50us 
+write_LCD                 USES LCD_char LCD_char_pos delay_50us 
+clear_LCD                 USES delay_50us 
+setup_custom_character    USES delay_50us delay_15ms 
+isrVmtim                  USES interruptFlags 
+isrVtpmovf                USES heartbeat_counter 
+flagToggle                USES interruptFlags heartbeat_counter 
+keyBoardScan              USES interruptFlags 
+keyHitStill               USES keyBoardEnd 
+keyOkay                   USES rowValue colValue 
+00001LOOPFINE             USES colValue rowValue 
+00002LOOPFINE             USES rowValue colValue rowCol interruptFlags 
+keyBoardNextRow           USES rowValue 
+checkRowValueEnd          USES keyBoardScan 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- _Startup            
+    | 
+    +- MCU_init            
+    |    
+    +- LCD_init            
+    |  | 
+    |  +- delay_15ms          
+    |  |    
+    |  +- delay_50us          
+    |       
+    +- setup_custom_character
+    |  | 
+    |  +- delay_50us           (see above)
+    |  |  
+    |  +- delay_15ms           (see above)
+    |     
+    +- Animation_init      
+       | 
+       +- write_LCD           
+          | 
+          +- delay_50us           (see above)
+             
+ _ORG00003           
+ | 
+ +- isrVmtim            
+ |    
+ +- isrVtpmovf          
+ |    
+ +- _Startup             (see above)
+    
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 9
+Total size of all blocks to be downloaded: 1120
+

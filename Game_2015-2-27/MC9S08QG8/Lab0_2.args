@@ -1,0 +1,10 @@
+"$(ProjDirPath)/Project_Settings/Linker_Files/Project.prm"
+-M
+-ViewHidden
+-WmsgFob"%f%e:%l:%k:%d %m\n" 
+-Add("$(ProjDirPath)/MC9S08QG8/Sources/Animation_asm.obj"
+"$(ProjDirPath)/MC9S08QG8/Sources/LCD_asm.obj"
+"$(ProjDirPath)/MC9S08QG8/Sources/LED_pattern_asm.obj"
+"$(ProjDirPath)/MC9S08QG8/Sources/MCUinit_asm.obj"
+"$(ProjDirPath)/MC9S08QG8/Sources/keyboard_asm.obj"
+"$(ProjDirPath)/MC9S08QG8/Sources/main_asm.obj")
